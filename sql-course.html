@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SQL & Database Development Course | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+        .course-hero {
+            background: linear-gradient(135deg, #1572B6 0%, #003f7f 100%);
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .course-hero img {
+            height: 120px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        .enrollment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .price-tag {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1572B6;
+        }
+        .enroll-btn {
+            background: linear-gradient(135deg, #1572B6, #003f7f);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(21,114,182,0.3);
+            color: white;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-list li i {
+            color: #1572B6;
+            margin-right: 10px;
+        }
+        .curriculum-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .curriculum-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .curriculum-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #1572B6;
+            transition: transform 0.3s ease;
+        }
+        .curriculum-item:hover {
+            transform: translateX(5px);
+        }
+        .curriculum-item h6 {
+            color: #1572B6;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .instructor-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        .instructor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #1572B6;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tech-badge {
+            background: #1572B6;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .database-diagram {
+            background: #f8f9fa;
+            border: 2px dashed #1572B6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .sql-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 4px solid #1572B6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>SQL & Database Development</h1>
+            </div>
+
+            <div class="course-hero text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="SQL">
+                <h2 class="mb-3">Master Database Design & SQL</h2>
+                <p class="lead">From basic queries to advanced database architecture and optimization</p>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-3">
+                        <i class="fa fa-clock-o fa-2x mb-2"></i>
+                        <h5>80 Hours</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-signal fa-2x mb-2"></i>
+                        <h5>Beginner to Advanced</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-star fa-2x mb-2"></i>
+                        <h5>4.8 Rating</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-users fa-2x mb-2"></i>
+                        <h5>12,320 Students</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">Course Curriculum</h3>
+                        
+                        <div class="curriculum-section">
+                            <h5 class="mb-3"><i class="fa fa-database me-2"></i>SQL Fundamentals</h5>
+                            <p class="text-muted mb-3">Master the foundation of SQL and database concepts from scratch.</p>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 1: Introduction to Databases & SQL</h6>
+                                <p>Database concepts, relational models, SQL overview, and database types</p>
+                                <div class="sql-example">SELECT * FROM students WHERE age > 18;</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Database Basics</span>
+                                    <span class="tech-badge">Relational Model</span>
+                                    <span class="tech-badge">SQL Introduction</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 2: Data Definition Language (DDL)</h6>
+                                <p>CREATE, ALTER, DROP commands, data types, constraints, and table design</p>
+                                <div class="sql-example">CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE
+);</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">CREATE</span>
+                                    <span class="tech-badge">ALTER</span>
+                                    <span class="tech-badge">Constraints</span>
+                                    <span class="tech-badge">Data Types</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 3: Data Manipulation Language (DML)</h6>
+                                <p>INSERT, UPDATE, DELETE operations, and basic query fundamentals</p>
+                                <div class="sql-example">INSERT INTO users (name, email) 
+VALUES ('John Doe', 'john@example.com');</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">INSERT</span>
+                                    <span class="tech-badge">UPDATE</span>
+                                    <span class="tech-badge">DELETE</span>
+                                    <span class="tech-badge">SELECT</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 4: Querying & Filtering Data</h6>
+                                <p>SELECT statements, WHERE clauses, operators, and data filtering techniques</p>
+                                <div class="sql-example">SELECT * FROM products 
+WHERE price BETWEEN 100 AND 500 
+AND category = 'Electronics';</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">WHERE</span>
+                                    <span class="tech-badge">Operators</span>
+                                    <span class="tech-badge">LIKE</span>
+                                    <span class="tech-badge">BETWEEN</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="curriculum-section">
+                            <h5 class="mb-3"><i class="fa fa-cogs me-2"></i>Advanced SQL & Database Design</h5>
+                            <p class="text-muted mb-3">Learn advanced SQL concepts and professional database design patterns.</p>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 5: Joins & Relationships</h6>
+                                <p>INNER JOIN, OUTER JOIN, self-joins, and understanding table relationships</p>
+                                <div class="sql-example">SELECT u.name, o.order_date 
+FROM users u 
+INNER JOIN orders o ON u.id = o.user_id;</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">INNER JOIN</span>
+                                    <span class="tech-badge">LEFT JOIN</span>
+                                    <span class="tech-badge">RIGHT JOIN</span>
+                                    <span class="tech-badge">Relationships</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 6: Aggregate Functions & Grouping</h6>
+                                <p>COUNT, SUM, AVG, GROUP BY, HAVING, and data analysis techniques</p>
+                                <div class="sql-example">SELECT department, AVG(salary) as avg_salary
+FROM employees 
+GROUP BY department 
+HAVING AVG(salary) > 50000;</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">GROUP BY</span>
+                                    <span class="tech-badge">HAVING</span>
+                                    <span class="tech-badge">Aggregate Functions</span>
+                                    <span class="tech-badge">Data Analysis</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 7: Subqueries & Nested Queries</h6>
+                                <p>Subqueries, EXISTS, IN operators, and complex query construction</p>
+                                <div class="sql-example">SELECT * FROM employees 
+WHERE department_id IN (
+    SELECT id FROM departments 
+    WHERE location = 'New York'
+);</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Subqueries</span>
+                                    <span class="tech-badge">EXISTS</span>
+                                    <span class="tech-badge">IN Operator</span>
+                                    <span class="tech-badge">Nested Queries</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 8: Database Design & Normalization</h6>
+                                <p>Database normalization, ER diagrams, and optimal table design</p>
+                                <div class="database-diagram">
+                                    <i class="fa fa-sitemap fa-3x mb-2"></i>
+                                    <p>Entity-Relationship Design</p>
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Normalization</span>
+                                    <span class="tech-badge">ER Diagrams</span>
+                                    <span class="tech-badge">1NF, 2NF, 3NF</span>
+                                    <span class="tech-badge">Database Design</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="curriculum-section">
+                            <h5 class="mb-3"><i class="fa fa-server me-2"></i>Database Administration & Performance</h5>
+                            <p class="text-muted mb-3">Master database administration, optimization, and advanced management.</p>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 9: Indexing & Performance Optimization</h6>
+                                <p>Database indexes, query optimization, and performance tuning techniques</p>
+                                <div class="sql-example">CREATE INDEX idx_email ON users(email);</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Indexing</span>
+                                    <span class="tech-badge">Performance</span>
+                                    <span class="tech-badge">Query Optimization</span>
+                                    <span class="tech-badge">EXPLAIN Plan</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 10: Transactions & Concurrency</h6>
+                                <p>ACID properties, transaction management, and handling concurrent access</p>
+                                <div class="sql-example">BEGIN TRANSACTION;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+COMMIT;</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Transactions</span>
+                                    <span class="tech-badge">ACID Properties</span>
+                                    <span class="tech-badge">Concurrency</span>
+                                    <span class="tech-badge">Locking</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 11: Stored Procedures & Functions</h6>
+                                <p>Creating stored procedures, functions, triggers, and database logic</p>
+                                <div class="sql-example">CREATE PROCEDURE GetUserOrders(IN userId INT)
+BEGIN
+    SELECT * FROM orders WHERE user_id = userId;
+END;</div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Stored Procedures</span>
+                                    <span class="tech-badge">Functions</span>
+                                    <span class="tech-badge">Triggers</span>
+                                    <span class="tech-badge">Database Logic</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 12: Database Security & Administration</h6>
+                                <p>User management, permissions, backup strategies, and database security</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">User Management</span>
+                                    <span class="tech-badge">Permissions</span>
+                                    <span class="tech-badge">Backup & Recovery</span>
+                                    <span class="tech-badge">Security</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">What You'll Learn</h3>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-check-circle"></i> Write complex SQL queries and subqueries</li>
+                            <li><i class="fa fa-check-circle"></i> Design normalized database schemas</li>
+                            <li><i class="fa fa-check-circle"></i> Optimize database performance with indexing</li>
+                            <li><i class="fa fa-check-circle"></i> Handle transactions and concurrent access</li>
+                            <li><i class="fa fa-check-circle"></i> Create stored procedures and functions</li>
+                            <li><i class="fa fa-check-circle"></i> Implement database security measures</li>
+                            <li><i class="fa fa-check-circle"></i> Work with multiple database systems</li>
+                            <li><i class="fa fa-check-circle"></i> Perform database backup and recovery</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructor-card">
+                        <h4 class="mb-3">Your Instructor</h4>
+                        <img src="https://picsum.photos/seed/sql-instructor/80/80" alt="Instructor" class="instructor-avatar">
+                        <h5>Dr. Sarah Mitchell</h5>
+                        <p class="text-muted">Database Architect & SQL Expert with 15+ years experience</p>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-auto">
+                                <i class="fa fa-star text-warning"></i> 4.8 Instructor Rating
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-users"></i> 18,750 Students
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-play-circle"></i> 8 Courses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="enrollment-card sticky-top" style="top: 20px;">
+                        <div class="text-center mb-4">
+                            <div class="price-tag">₹ 1,799</div>
+                            <p class="text-muted">One-time payment</p>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <a href="sql-study.html" class="enroll-btn text-center">
+                                <i class="fa fa-graduation-cap me-2"></i>Start Learning
+                            </a>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h5 class="mb-3">Course Features:</h5>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-video-camera"></i> 80 Hours Video Content</li>
+                            <li><i class="fa fa-download"></i> Downloadable Resources</li>
+                            <li><i class="fa fa-certificate"></i> Certificate of Completion</li>
+                            <li><i class="fa fa-mobile"></i> Mobile Access</li>
+                            <li><i class="fa fa-infinity"></i> Lifetime Access</li>
+                            <li><i class="fa fa-headphones"></i> Instructor Support</li>
+                            <li><i class="fa fa-database"></i> 15+ Database Projects</li>
+                            <li><i class="fa fa-cloud"></i> Cloud Database Practice</li>
+                        </ul>
+
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <h6 class="mb-3">Share this course:</h6>
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-outline-primary"><i class="fa fa-facebook"></i></button>
+                                <button class="btn btn-outline-info"><i class="fa fa-twitter"></i></button>
+                                <button class="btn btn-outline-danger"><i class="fa fa-linkedin"></i></button>
+                                <button class="btn btn-outline-success"><i class="fa fa-whatsapp"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

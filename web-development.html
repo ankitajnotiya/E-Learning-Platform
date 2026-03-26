@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development - E-Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2be283;
+            --secondary-color: #1a202c;
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Responsive */
+        .navbar-brand img { height: 35px; }
+        @media (max-width: 991px) {
+            .navbar-nav { text-align: center; padding: 20px 0; }
+            .btn-outline-dark { width: 100%; margin-top: 10px; }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 60px 0; /* Reduced padding */
+            background: radial-gradient(circle at top right, rgba(43, 226, 131, 0.1), transparent);
+        }
+
+        .hero-title {
+            font-size: calc(1.8rem + 2vw); /* Responsive Font */
+            background: linear-gradient(45deg, #1a202c, #2be283);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        /* Stats Section Responsive */
+        .stats-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin-top: -30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Course Cards */
+        .course-card {
+            border: none;
+            border-radius: 25px;
+            transition: 0.3s;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(43, 226, 131, 0.1) !important;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), #15803d);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Why Choose Us Feature Item */
+        .feature-item {
+            padding: 15px;
+            border-radius: 12px;
+            background: white;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 767px) {
+            .stats-box .border-end {
+                border-end: none !important;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+            .stats-box .col-md-4:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+            .btn-primary { width: 100%; } /* Mobile par button full width */
+            .hero-section { padding: 40px 15px; }
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), #24c271);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-white sticky-top py-2">
+        <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="e-learning.png" alt="Logo" class="me-2"> 
+                <span class="fw-bold fs-3">Learn<span style="color: var(--primary-color);">Hub</span></span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a href="index.html" class="nav-item nav-link mx-2">Home</a>
+                    <a href="about.html" class="nav-item nav-link mx-2">About</a>
+                    <a href="courses.html" class="nav-item nav-link mx-2 active">Courses</a>
+                    <a href="contact.html" class="nav-item nav-link mx-2">Contact</a>
+                    <a href="login.html" class="btn btn-outline-dark rounded-pill px-4 ms-lg-3">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="hero-title mb-3">Web Development</h1>
+            <p class="text-muted mb-4 mx-auto px-2" style="max-width: 700px; font-size: 0.95rem;">
+                Become a full-stack developer by mastering frontend and backend technologies. Build real-world projects and get industry-ready.
+            </p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="stats-box text-center">
+            <div class="row g-3">
+                <div class="col-12 col-md-4 border-end">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-color);">15K+</h3>
+                    <p class="text-muted small mb-0">Active Students</p>
+                </div>
+                <div class="col-12 col-md-4 border-end">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-color);">45+</h3>
+                    <p class="text-muted small mb-0">Coding Modules</p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-color);">100%</h3>
+                    <p class="text-muted small mb-0">Project Based</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="row g-4">
+            <div class="col-12 col-lg-6">
+                <div class="card h-100 course-card p-3 p-md-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Frontend Mastery</h4>
+                        <p class="text-muted small mb-4">Focus on what the user sees. Learn responsive interfaces using modern tools.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-light text-dark border p-2">React.js</span>
+                            <span class="badge bg-light text-dark border p-2">Tailwind</span>
+                            <span class="badge bg-light text-dark border p-2">JS ES6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-6">
+                <div class="card h-100 course-card p-3 p-md-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Backend Architecture</h4>
+                        <p class="text-muted small mb-4">Focus on logic and databases. Handle data, security, and servers like a pro.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-light text-dark border p-2">Node.js</span>
+                            <span class="badge bg-light text-dark border p-2">MongoDB</span>
+                            <span class="badge bg-light text-dark border p-2">Django</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="courses.html" class="btn btn-primary shadow">Explore All Courses <i class="fa fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+
+    <div class="bg-white py-5 mt-4">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-lg-6">
+                    <h3 class="fw-bold mb-4">Why learn with <span style="color: var(--primary-color);">LearnHub?</span></h3>
+                    <div class="feature-item">
+                        <h6 class="fw-bold mb-1">Expert Instructors</h6>
+                        <p class="mb-0 text-muted small">Learn from professionals in top tech companies.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h6 class="fw-bold mb-1">Lifetime Access</h6>
+                        <p class="mb-0 text-muted small">Study at your own pace with lifetime materials.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 text-center">
+                    <img src="https://img.freepik.com/free-vector/code-typing-concept-illustration_114360-3581.jpg" alt="Coding" class="img-fluid rounded-4" style="max-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Full Stack Web Development Course | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+        .course-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .course-hero img {
+            height: 120px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        .enrollment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .price-tag {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .enroll-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+            color: white;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-list li i {
+            color: #667eea;
+            margin-right: 10px;
+        }
+        .curriculum-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .curriculum-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .curriculum-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        .curriculum-item:hover {
+            transform: translateX(5px);
+        }
+        .curriculum-item h6 {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .instructor-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        .instructor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #667eea;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tech-badge {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>Full Stack Web Development</h1>
+            </div>
+
+            <div class="course-hero text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Web Development">
+                <h2 class="mb-3">Master Modern Web Development</h2>
+                <p class="lead">Build professional web applications from frontend to backend</p>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-3">
+                        <i class="fa fa-clock-o fa-2x mb-2"></i>
+                        <h5>120 Hours</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-signal fa-2x mb-2"></i>
+                        <h5>Beginner to Advanced</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-star fa-2x mb-2"></i>
+                        <h5>4.9 Rating</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-users fa-2x mb-2"></i>
+                        <h5>15,750 Students</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">Course Curriculum</h3>
+                        
+                        <div class="curriculum-section">
+                            <h5 class="mb-3"><i class="fa fa-laptop me-2"></i>Frontend Development</h5>
+                            <p class="text-muted mb-3">Master modern frontend technologies and create stunning user interfaces.</p>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 1: HTML5 & Semantic Web</h6>
+                                <p>Modern HTML5, semantic markup, accessibility, and SEO best practices</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">Semantic HTML</span>
+                                    <span class="tech-badge">Accessibility</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 2: Advanced CSS & Responsive Design</h6>
+                                <p>CSS3, Flexbox, Grid, animations, responsive design, and modern frameworks</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">CSS3</span>
+                                    <span class="tech-badge">Tailwind CSS</span>
+                                    <span class="tech-badge">Bootstrap</span>
+                                    <span class="tech-badge">SASS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 3: JavaScript & Modern ES6+</h6>
+                                <p>JavaScript fundamentals, ES6+, DOM manipulation, async programming, and modern frameworks</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">ES6+</span>
+                                    <span class="tech-badge">TypeScript</span>
+                                    <span class="tech-badge">React</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 4: React & Modern Frontend Frameworks</h6>
+                                <p>React hooks, state management, routing, component architecture, and performance optimization</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Redux</span>
+                                    <span class="tech-badge">Vue.js</span>
+                                    <span class="tech-badge">Angular</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="curriculum-section">
+                            <h5 class="mb-3"><i class="fa fa-server me-2"></i>Backend Development</h5>
+                            <p class="text-muted mb-3">Build robust server-side applications and APIs with modern technologies.</p>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 5: Node.js & Express.js</h6>
+                                <p>Node.js fundamentals, Express framework, middleware, and RESTful API development</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Node.js</span>
+                                    <span class="tech-badge">Express.js</span>
+                                    <span class="tech-badge">REST APIs</span>
+                                    <span class="tech-badge">Middleware</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 6: Database Design & Management</h6>
+                                <p>SQL and NoSQL databases, data modeling, queries, and database optimization</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">MySQL</span>
+                                    <span class="tech-badge">PostgreSQL</span>
+                                    <span class="tech-badge">MongoDB</span>
+                                    <span class="tech-badge">Redis</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 7: Authentication & Security</h6>
+                                <p>User authentication, JWT tokens, OAuth, security best practices, and data protection</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">JWT</span>
+                                    <span class="tech-badge">OAuth</span>
+                                    <span class="tech-badge">bcrypt</span>
+                                    <span class="tech-badge">Security</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 8: API Development & Integration</h6>
+                                <p>RESTful APIs, GraphQL, third-party integrations, and API documentation</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">REST</span>
+                                    <span class="tech-badge">GraphQL</span>
+                                    <span class="tech-badge">Postman</span>
+                                    <span class="tech-badge">Swagger</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="curriculum-section">
+                            <h5 class="mb-3"><i class="fa fa-cloud me-2"></i>DevOps & Deployment</h5>
+                            <p class="text-muted mb-3">Deploy applications to production and manage development workflows.</p>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 9: Git & Version Control</h6>
+                                <p>Git fundamentals, branching strategies, collaboration, and version control workflows</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Git</span>
+                                    <span class="tech-badge">GitHub</span>
+                                    <span class="tech-badge">GitLab</span>
+                                    <span class="tech-badge">Version Control</span>
+                                </div>
+                            </div>
+                            
+                            <div class="curriculum-item">
+                                <h6><i class="fa fa-play-circle me-2"></i>Module 10: Cloud Deployment & DevOps</h6>
+                                <p>Cloud platforms, CI/CD pipelines, containerization, and production deployment</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">AWS</span>
+                                    <span class="tech-badge">Docker</span>
+                                    <span class="tech-badge">CI/CD</span>
+                                    <span class="tech-badge">Vercel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">What You'll Learn</h3>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-check-circle"></i> Build responsive, modern web applications</li>
+                            <li><i class="fa fa-check-circle"></i> Master frontend frameworks like React and Vue</li>
+                            <li><i class="fa fa-check-circle"></i> Develop scalable backend APIs with Node.js</li>
+                            <li><i class="fa fa-check-circle"></i> Work with SQL and NoSQL databases</li>
+                            <li><i class="fa fa-check-circle"></i> Implement authentication and security best practices</li>
+                            <li><i class="fa fa-check-circle"></i> Deploy applications to cloud platforms</li>
+                            <li><i class="fa fa-check-circle"></i> Use modern development tools and workflows</li>
+                            <li><i class="fa fa-check-circle"></i> Build full-stack projects from scratch</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructor-card">
+                        <h4 class="mb-3">Your Instructor</h4>
+                        <img src="https://picsum.photos/seed/web-instructor/80/80" alt="Instructor" class="instructor-avatar">
+                        <h5>Alex Thompson</h5>
+                        <p class="text-muted">Full Stack Developer & Web Architecture Expert</p>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-auto">
+                                <i class="fa fa-star text-warning"></i> 4.9 Instructor Rating
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-users"></i> 22,500 Students
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-play-circle"></i> 12 Courses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="enrollment-card sticky-top" style="top: 20px;">
+                        <div class="text-center mb-4">
+                            <div class="price-tag">₹ 2,499</div>
+                            <p class="text-muted">One-time payment</p>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <a href="web-development-study.html" class="enroll-btn text-center">
+                                <i class="fa fa-graduation-cap me-2"></i>Start Learning
+                            </a>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h5 class="mb-3">Course Features:</h5>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-video-camera"></i> 120 Hours Video Content</li>
+                            <li><i class="fa fa-download"></i> Downloadable Resources</li>
+                            <li><i class="fa fa-certificate"></i> Certificate of Completion</li>
+                            <li><i class="fa fa-mobile"></i> Mobile Access</li>
+                            <li><i class="fa fa-infinity"></i> Lifetime Access</li>
+                            <li><i class="fa fa-headphones"></i> Instructor Support</li>
+                            <li><i class="fa fa-code"></i> 10+ Real Projects</li>
+                            <li><i class="fa fa-cloud"></i> Cloud Deployment Practice</li>
+                        </ul>
+
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <h6 class="mb-3">Share this course:</h6>
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-outline-primary"><i class="fa fa-facebook"></i></button>
+                                <button class="btn btn-outline-info"><i class="fa fa-twitter"></i></button>
+                                <button class="btn btn-outline-danger"><i class="fa fa-linkedin"></i></button>
+                                <button class="btn btn-outline-success"><i class="fa fa-whatsapp"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

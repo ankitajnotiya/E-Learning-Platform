@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML5 Course Player | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+        .course-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .course-sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .course-sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .course-sidebar::-webkit-scrollbar-thumb {
+            background: #E34C26;
+            border-radius: 10px;
+        }
+        .lecture-item {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .lecture-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+            border-color: #E34C26;
+        }
+        .lecture-item.active {
+            background: linear-gradient(135deg, #E34C26 0%, #F06529 100%);
+            color: white;
+            border-color: #E34C26;
+        }
+        .lecture-item.active i {
+            color: white !important;
+        }
+        .lecture-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #E34C26;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .lecture-item.active .lecture-number {
+            background: white;
+            color: #E34C26;
+        }
+        .course-progress {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .progress-bar-custom {
+            height: 10px;
+            border-radius: 50px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+        .progress-bar-custom .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #E34C26, #F06529);
+            border-radius: 50px;
+            transition: width 0.3s ease;
+        }
+        .video-info {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .tab-content-custom {
+            display: none;
+        }
+        .tab-content-custom.active {
+            display: block;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #E34C26, #F06529);
+            color: white;
+        }
+        .notes-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .note-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #E34C26;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>HTML5 Mastery Course</h1>
+            </div>
+
+            <div class="course-progress">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h5 class="mb-2">Course Progress</h5>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 16%;"></div>
+                        </div>
+                        <p class="text-muted mt-2 mb-0">1 of 6 lectures completed</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-outline-primary">
+                            <i class="fa fa-certificate me-2"></i>Get Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/kUMe1FH4CHE" 
+                                title="HTML5 Tutorial for Beginners" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="video-info">
+                        <h3 class="mb-3">Module 1: HTML Fundamentals</h3>
+                        <h4 class="mb-3">Lecture 1: Introduction to HTML5</h4>
+                        
+                        <div class="mb-4">
+                            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+                            <button class="tab-btn" onclick="showTab('notes')">Notes</button>
+                            <button class="tab-btn" onclick="showTab('resources')">Resources</button>
+                        </div>
+
+                        <div id="overview" class="tab-content-custom active">
+                            <p>In this introductory lecture, you'll learn:</p>
+                            <ul>
+                                <li>What is HTML5 and why it's important</li>
+                                <li>HTML5 document structure and syntax</li>
+                                <li>Setting up your development environment</li>
+                                <li>Creating your first HTML5 page</li>
+                                <li>Understanding semantic elements</li>
+                            </ul>
+                            <p>This lecture provides foundation for your HTML5 journey, ensuring you understand fundamentals before diving deeper into web development.</p>
+                        </div>
+
+                        <div id="notes" class="tab-content-custom">
+                            <div class="notes-section">
+                                <h5>Your Notes</h5>
+                                <textarea class="form-control mb-3" rows="4" placeholder="Add your notes here..."></textarea>
+                                <button class="btn btn-primary btn-sm">Save Notes</button>
+                                
+                                <div class="mt-4">
+                                    <h6>Saved Notes</h6>
+                                    <div class="note-item">
+                                        <strong>HTML5 Philosophy:</strong> "Semantic markup matters" - HTML5 emphasizes meaningful, accessible content.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="resources" class="tab-content-custom">
+                            <h5>Download Resources</h5>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <i class="fa fa-file-pdf-o text-danger me-2"></i>
+                                    Lecture Slides - Module 1.pdf
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <i class="fa fa-file-code-o text-primary me-2"></i>
+                                    HTML5 Setup Guide.txt
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <i class="fa fa-file-archive-o text-warning me-2"></i>
+                                    Sample Code.zip
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="course-sidebar">
+                        <h5 class="mb-4">Course Content</h5>
+                        
+                        <div class="lecture-item active">
+                            <div class="lecture-number">1</div>
+                            <i class="fa fa-play-circle me-2"></i>
+                            <strong>Introduction to HTML5</strong>
+                            <div class="text-muted small">18:45</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">2</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Text & Formatting</strong>
+                            <div class="text-muted small">22:30</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">3</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Links & Media</strong>
+                            <div class="text-muted small">25:15</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">4</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Forms & Input</strong>
+                            <div class="text-muted small">28:20</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">5</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Semantic HTML5</strong>
+                            <div class="text-muted small">31:45</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">6</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Accessibility & SEO</strong>
+                            <div class="text-muted small">26:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content-custom');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Lecture item click handler
+        document.querySelectorAll('.lecture-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.lecture-item').forEach(i => i.classList.remove('active'));
+                // Add active class to clicked item
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

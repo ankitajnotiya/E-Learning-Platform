@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>E-Learning Platform | 14 Courses</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+
+        /* Center Header */
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+
+        .header-container h1 {
+            font-weight: 800;
+            color: #2c3e50;
+            font-size: 32px;
+        }
+
+        .header-container p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* Compact Card Styling */
+        .course-item {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            display: flex;
+            flex-direction: column;
+            height: 320px;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .course-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+            border-color: #00c3ff;
+        }
+
+        .course-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00c3ff, #0099cc);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-item:hover::before {
+            opacity: 1;
+        }
+
+        .course-item .image {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 5px 15px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .course-item .image img {
+            height: 80px; 
+            width: 100%;
+            object-fit: contain;
+            filter: grayscale(20%);
+            transition: all 0.3s ease;
+        }
+
+        .course-item:hover .image img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .course-details {
+            padding: 12px 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-details h6 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .course-item:hover .course-details h6 {
+            color: #00c3ff;
+        }
+
+        .meta-box {
+            font-size: 12px;
+            border-top: 1px solid #f1f1f1;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 6px 0;
+            margin-top: auto;
+        }
+
+        .meta-box .level {
+            padding-left: 5px;
+        }
+
+        .card-bottom-row {
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .card-action-row {
+            padding: 8px 15px;
+            text-align: right;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .card-action-row a {
+            text-decoration: none;
+            color: #00c3ff;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-action-row a:hover {
+            color: #0099cc;
+            transform: translateX(3px);
+        }
+
+        .card-action-row a i {
+            transition: transform 0.3s ease;
+        }
+
+        .card-action-row a:hover i {
+            transform: translateX(2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>Explore Our Courses</h1>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python"></div>
+                        <div class="course-details"><h6>Python Programming</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.9</span><span class="flex-fill level text-start"> Beginner</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">45 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="python-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React"></div>
+                        <div class="course-details"><h6>React JS Mastery</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.8</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">60 Hrs</span><span class="flex-fill text-end">₹ 1399</span></div>
+                        <div class="card-action-row"><a href="react-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JS"></div>
+                        <div class="course-details"><h6>Modern JavaScript</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.7</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">50 Hrs</span><span class="flex-fill text-end">₹ 999</span></div>
+                        <div class="card-action-row"><a href="javascript-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML"></div>
+                        <div class="course-details"><h6>HTML5 Mastery</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.5</span><span class="flex-fill level text-start"> Beginner</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">15 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="html-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node"></div>
+                        <div class="course-details"><h6>Node.js Backend</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.6</span><span class="flex-fill level text-start"> Advanced</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">40 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="node-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java"></div>
+                        <div class="course-details"><h6>Java Full Stack</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.9</span><span class="flex-fill level text-start"> Advanced</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">80 Hrs</span><span class="flex-fill text-end">₹ 1599</span></div>
+                        <div class="card-action-row"><a href="java-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="SQL"></div>
+                        <div class="course-details"><h6>SQL Database</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.7</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">30 Hrs</span><span class="flex-fill text-end">₹ 899</span></div>
+                        <div class="card-action-row"><a href="sql-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS"></div>
+                        <div class="course-details"><h6>CSS3 Animation</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.5</span><span class="flex-fill level text-start"> Beginner</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">20 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="css-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap"></div>
+                        <div class="course-details"><h6>Bootstrap 5</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.4</span><span class="flex-fill level text-start"> Beginner</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">12 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="bootstrap-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://www.vectorlogo.zone/logos/php/php-icon.svg" alt="PHP"></div>
+                        <div class="course-details"><h6>PHP Development</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.2</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">35 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="php-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" alt="C++"></div>
+                        <div class="course-details"><h6>C++ Programming</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.8</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">55 Hrs</span><span class="flex-fill text-end">₹ 1199</span></div>
+                        <div class="card-action-row"><a href="cpp-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular"></div>
+                        <div class="course-details"><h6>Angular Pro</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.6</span><span class="flex-fill level text-start"> Advanced</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">70 Hrs</span><span class="flex-fill text-end">₹ 1499</span></div>
+                        <div class="card-action-row"><a href="angular-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB"></div>
+                        <div class="course-details"><h6>MongoDB NoSQL</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.7</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">25 Hrs</span><span class="flex-fill text-end">₹ 699</span></div>
+                        <div class="card-action-row"><a href="mongodb-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-item shadow-sm">
+                        <div class="image"><img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="TypeScript"></div>
+                        <div class="course-details"><h6>TypeScript Guide</h6><div class="meta-box d-flex"><span class="flex-fill border-end"><i class="fa fa-star text-warning me-1"></i> 4.8</span><span class="flex-fill level text-start"> Intermediate</span></div></div>
+                        <div class="card-bottom-row d-flex"><span class="flex-fill text-start">30 Hrs</span><span class="flex-fill text-end">₹ 0</span></div>
+                        <div class="card-action-row"><a href="typescript-course.html">Enroll Now <i class="fa fa-chevron-right ms-1"></i></a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

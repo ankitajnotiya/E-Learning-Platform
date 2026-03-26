@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Course Player | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+        .course-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .course-sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .course-sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .course-sidebar::-webkit-scrollbar-thumb {
+            background: #f7df1e;
+            border-radius: 10px;
+        }
+        .lecture-item {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .lecture-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+            border-color: #f7df1e;
+        }
+        .lecture-item.active {
+            background: linear-gradient(135deg, #f7df1e 0%, #323330 100%);
+            color: white;
+            border-color: #f7df1e;
+        }
+        .lecture-item.active i {
+            color: white !important;
+        }
+        .lecture-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #f7df1e;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .lecture-item.active .lecture-number {
+            background: white;
+            color: #f7df1e;
+        }
+        .course-progress {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .progress-bar-custom {
+            height: 10px;
+            border-radius: 50px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+        .progress-bar-custom .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f7df1e, #323330);
+            border-radius: 50px;
+            transition: width 0.3s ease;
+        }
+        .video-info {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .tab-content-custom {
+            display: none;
+        }
+        .tab-content-custom.active {
+            display: block;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #f7df1e, #323330);
+            color: white;
+        }
+        .notes-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .note-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #f7df1e;
+        }
+        .mcq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .mcq-question {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #f7df1e;
+        }
+        .mcq-option {
+            background: white;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mcq-option:hover {
+            background: #f7df1e;
+            color: white;
+            border-color: #f7df1e;
+        }
+        .coding-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .coding-challenge {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #f7df1e;
+        }
+        .marks-display {
+            background: linear-gradient(135deg, #f7df1e, #323330);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .compiler-container {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .online-compiler {
+            background: #1e1e1e;
+            border: 1px solid #444;
+            border-radius: 8px;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .compiler-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .compiler-btn {
+            background: #f7df1e;
+            color: #323330;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .compiler-btn:hover {
+            background: #323330;
+            color: #f7df1e;
+        }
+        .output-console {
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            min-height: 100px;
+            white-space: pre-wrap;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>Modern JavaScript Course</h1>
+            </div>
+
+            <div class="course-progress">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h5 class="mb-2">Course Progress</h5>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 20%;"></div>
+                        </div>
+                        <p class="text-muted mt-2 mb-0">2 of 10 lectures completed</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-outline-primary">
+                            <i class="fa fa-certificate me-2"></i>Get Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/W6NZfCO5SIk" 
+                                title="JavaScript Tutorial for Beginners" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="video-info">
+                        <h3 class="mb-3">Module 1: JavaScript Fundamentals</h3>
+                        <h4 class="mb-3">Lecture 1: Introduction to JavaScript</h4>
+                        
+                        <div class="mb-4">
+                            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+                            <button class="tab-btn" onclick="showTab('mcq')">MCQ Test</button>
+                            <button class="tab-btn" onclick="showTab('coding')">Coding Practice</button>
+                            <button class="tab-btn" onclick="showTab('notes')">Notes</button>
+                            <button class="tab-btn" onclick="showTab('resources')">Resources</button>
+                        </div>
+
+                        <div id="overview" class="tab-content-custom active">
+                            <p>In this introductory lecture, you'll learn:</p>
+                            <ul>
+                                <li>What is JavaScript and why it's essential</li>
+                                <li>JavaScript's role in web development</li>
+                                <li>Setting up your development environment</li>
+                                <li>Writing your first JavaScript program</li>
+                                <li>Basic syntax and data types</li>
+                            </ul>
+                            <p>This lecture provides the foundation for your JavaScript journey, ensuring you understand the fundamentals before diving deeper into modern web development.</p>
+                        </div>
+
+                        <div id="mcq" class="tab-content-custom">
+                            <div class="mcq-section">
+                                <h5>Test Your Knowledge - MCQ Quiz</h5>
+                                <div class="marks-display">Total Marks: 30 | Each Question: 10 Marks</div>
+                                
+                                <div class="mcq-question">
+                                    <h6>Question 1 (10 Marks): What is JavaScript?</h6>
+                                    <div class="mcq-option" data-correct="false">A) A database management system</div>
+                                    <div class="mcq-option" data-correct="true">B) A programming language for web development</div>
+                                    <div class="mcq-option" data-correct="false">C) A markup language</div>
+                                    <div class="mcq-option" data-correct="false">D) A styling language</div>
+                                </div>
+
+                                <div class="mcq-question">
+                                    <h6>Question 2 (10 Marks): Where does JavaScript run?</h6>
+                                    <div class="mcq-option" data-correct="false">A) Only on servers</div>
+                                    <div class="mcq-option" data-correct="false">B) Only in browsers</div>
+                                    <div class="mcq-option" data-correct="true">C) Both browsers and servers</div>
+                                    <div class="mcq-option" data-correct="false">D) Only on mobile devices</div>
+                                </div>
+
+                                <div class="mcq-question">
+                                    <h6>Question 3 (10 Marks): What keyword is used to declare a variable in modern JavaScript?</h6>
+                                    <div class="mcq-option" data-correct="false">A) var</div>
+                                    <div class="mcq-option" data-correct="false">B) let</div>
+                                    <div class="mcq-option" data-correct="false">C) const</div>
+                                    <div class="mcq-option" data-correct="true">D) All of the above</div>
+                                </div>
+
+                                <button class="btn btn-primary mt-3" onclick="calculateMCQScore()">Submit Quiz</button>
+                                <div id="mcq-result" class="mt-3" style="display: none;">
+                                    <div class="marks-display">Your Score: <span id="mcq-score">0</span>/30</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="coding" class="tab-content-custom">
+                            <div class="coding-section">
+                                <h5>Coding Practice - Hands-on Exercises</h5>
+                                <div class="marks-display">Total Coding Marks: 50 | Each Challenge: 15-20 Marks</div>
+                                
+                                <div class="coding-challenge">
+                                    <h6>Challenge 1 (15 Marks): Your First JavaScript Program</h6>
+                                    <p>Write a program that displays "Hello, World!" in the console</p>
+                                    
+                                    <div class="compiler-container">
+                                        <div class="compiler-controls">
+                                            <button class="compiler-btn" onclick="runCode('challenge1')">▶ Run Code</button>
+                                            <button class="compiler-btn" onclick="clearOutput('challenge1')">🗑 Clear</button>
+                                            <button class="compiler-btn" onclick="resetCode('challenge1')">↺ Reset</button>
+                                        </div>
+                                        <iframe class="online-compiler" id="compiler-challenge1" src="https://onecompiler.com/javascript/3z4j3c8j9"></iframe>
+                                        <div class="output-console" id="output-challenge1">// Output will appear here...</div>
+                                    </div>
+                                    
+                                    <button class="btn btn-success mt-2" onclick="submitCodingChallenge('challenge1', 15)">Submit Solution</button>
+                                </div>
+
+                                <div class="coding-challenge">
+                                    <h6>Challenge 2 (15 Marks): Variable Declaration</h6>
+                                    <p>Declare variables using let and const</p>
+                                    
+                                    <div class="compiler-container">
+                                        <div class="compiler-controls">
+                                            <button class="compiler-btn" onclick="runCode('challenge2')">▶ Run Code</button>
+                                            <button class="compiler-btn" onclick="clearOutput('challenge2')">🗑 Clear</button>
+                                            <button class="compiler-btn" onclick="resetCode('challenge2')">↺ Reset</button>
+                                        </div>
+                                        <iframe class="online-compiler" id="compiler-challenge2" src="https://onecompiler.com/javascript/3z4j3c8j9"></iframe>
+                                        <div class="output-console" id="output-challenge2">// Output will appear here...</div>
+                                    </div>
+                                    
+                                    <button class="btn btn-success mt-2" onclick="submitCodingChallenge('challenge2', 15)">Submit Solution</button>
+                                </div>
+
+                                <div class="coding-challenge">
+                                    <h6>Challenge 3 (20 Marks): Basic Function</h6>
+                                    <p>Create a function that adds two numbers</p>
+                                    
+                                    <div class="compiler-container">
+                                        <div class="compiler-controls">
+                                            <button class="compiler-btn" onclick="runCode('challenge3')">▶ Run Code</button>
+                                            <button class="compiler-btn" onclick="clearOutput('challenge3')">🗑 Clear</button>
+                                            <button class="compiler-btn" onclick="resetCode('challenge3')">↺ Reset</button>
+                                        </div>
+                                        <iframe class="online-compiler" id="compiler-challenge3" src="https://onecompiler.com/javascript/3z4j3c8j9"></iframe>
+                                        <div class="output-console" id="output-challenge3">// Output will appear here...</div>
+                                    </div>
+                                    
+                                    <button class="btn btn-success mt-2" onclick="submitCodingChallenge('challenge3', 20)">Submit Solution</button>
+                                </div>
+
+                                <div id="coding-result" class="mt-3" style="display: none;">
+                                    <div class="marks-display">Coding Score: <span id="coding-score">0</span>/50</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="notes" class="tab-content-custom">
+                            <div class="notes-section">
+                                <h5>Your Notes</h5>
+                                <textarea class="form-control mb-3" rows="4" placeholder="Add your notes here..."></textarea>
+                                <button class="btn btn-primary btn-sm">Save Notes</button>
+                                
+                                <div class="mt-4">
+                                    <h6>Saved Notes</h6>
+                                    <div class="note-item">
+                                        <strong>JavaScript Philosophy:</strong> "Make it work, then make it right" - JavaScript emphasizes functionality and correctness.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="resources" class="tab-content-custom">
+                            <h5>Download Resources</h5>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <i class="fa fa-file-pdf-o text-danger me-2"></i>
+                                    Lecture Slides - Module 1.pdf
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <i class="fa fa-file-code-o text-primary me-2"></i>
+                                    JavaScript Setup Guide.txt
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <i class="fa fa-file-archive-o text-warning me-2"></i>
+                                    Sample Code.zip
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="course-sidebar">
+                        <h5 class="mb-4">Course Content</h5>
+                        
+                        <div class="lecture-item active">
+                            <div class="lecture-number">1</div>
+                            <i class="fa fa-play-circle me-2"></i>
+                            <strong>Introduction to JavaScript</strong>
+                            <div class="text-muted small">18:45</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">2</div>
+                            <i class="fa fa-play-circle me-2"></i>
+                            <strong>Variables & Data Types</strong>
+                            <div class="text-muted small">22:30</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">3</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Functions & Scope</strong>
+                            <div class="text-muted small">25:15</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">4</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Arrays & Objects</strong>
+                            <div class="text-muted small">19:20</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">5</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>DOM Manipulation</strong>
+                            <div class="text-muted small">28:45</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">6</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Event Handling</strong>
+                            <div class="text-muted small">24:10</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">7</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>ES6 Features</strong>
+                            <div class="text-muted small">31:20</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">8</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Async JavaScript</strong>
+                            <div class="text-muted small">26:30</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">9</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Fetch API & AJAX</strong>
+                            <div class="text-muted small">23:15</div>
+                        </div>
+
+                        <div class="lecture-item">
+                            <div class="lecture-number">10</div>
+                            <i class="fa fa-lock me-2 text-muted"></i>
+                            <strong>Modern JavaScript Tools</strong>
+                            <div class="text-muted small">20:45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content-custom');
+            tabContents.forEach(content => content.classList.remove('active'));
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        document.querySelectorAll('.lecture-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.lecture-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.mcq-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.mcq-option').forEach(opt => {
+                    opt.style.background = 'white';
+                    opt.style.color = 'black';
+                });
+                this.style.background = '#f7df1e';
+                this.style.color = 'white';
+            });
+        });
+
+        function calculateMCQScore() {
+            let score = 0;
+            const questions = document.querySelectorAll('.mcq-question');
+            
+            questions.forEach(question => {
+                const selected = question.querySelector('.mcq-option[style*="background: rgb(247, 223, 30)"]');
+                if (selected && selected.getAttribute('data-correct') === 'true') {
+                    score += 10;
+                }
+            });
+            
+            document.getElementById('mcq-score').textContent = score;
+            document.getElementById('mcq-result').style.display = 'block';
+            
+            // Show total score
+            showTotalScore();
+        }
+
+        function runCode(challengeId) {
+            const output = document.getElementById('output-' + challengeId);
+            output.textContent = '// Running code...\n// Code executed successfully!';
+            output.style.color = '#00ff00';
+        }
+
+        function clearOutput(challengeId) {
+            const output = document.getElementById('output-' + challengeId);
+            output.textContent = '// Output cleared...';
+            output.style.color = '#888';
+        }
+
+        function resetCode(challengeId) {
+            clearOutput(challengeId);
+            const compiler = document.getElementById('compiler-' + challengeId);
+            compiler.src = compiler.src; // Reset iframe
+        }
+
+        let codingScore = 0;
+        function submitCodingChallenge(challengeId, marks) {
+            codingScore += marks;
+            document.getElementById('coding-score').textContent = codingScore;
+            document.getElementById('coding-result').style.display = 'block';
+            
+            alert(`Challenge ${challengeId.charAt(challengeId.length - 1)} submitted successfully! +${marks} marks`);
+            showTotalScore();
+        }
+
+        function showTotalScore() {
+            const mcqScore = parseInt(document.getElementById('mcq-score').textContent) || 0;
+            const totalScore = mcqScore + codingScore;
+            const maxScore = 80; // 30 MCQ + 50 Coding
+            
+            if (totalScore > 0) {
+                const totalDisplay = document.createElement('div');
+                totalDisplay.className = 'marks-display mt-3';
+                totalDisplay.innerHTML = `<strong>🏆 Total Score: ${totalScore}/${maxScore}</strong>`;
+                
+                const existing = document.querySelector('.total-score-display');
+                if (existing) existing.remove();
+                
+                totalDisplay.classList.add('total-score-display');
+                document.querySelector('.video-info').appendChild(totalDisplay);
+            }
+        }
+    </script>
+</body>
+</html>

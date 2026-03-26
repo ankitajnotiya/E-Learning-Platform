@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FAQ | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+        .faq-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .faq-hero img {
+            height: 120px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        .faq-category {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .faq-category h3 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-weight: bold;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
+            transform: translateY(-2px);
+        }
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background: #667eea;
+            color: white;
+        }
+        .faq-question.active {
+            background: #667eea;
+            color: white;
+            border-bottom: none;
+        }
+        .faq-answer {
+            padding: 20px;
+            display: none;
+            color: #555;
+            line-height: 1.6;
+        }
+        .faq-answer.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 15px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 2px solid #667eea;
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+        }
+        .search-box input::placeholder {
+            color: #999;
+        }
+        .contact-support {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact-support .btn {
+            margin: 5px;
+        }
+        .popular-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .tag:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .highlight-text {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .quick-links {
+            background: #e3f2fd;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .quick-links h4 {
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        .quick-links a {
+            color: #1976d2;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+        .quick-links a:hover {
+            color: #0d47a1;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>Frequently Asked Questions</h1>
+            </div>
+
+            <div class="faq-hero text-center">
+                <i class="fa fa-question-circle fa-4x mb-3"></i>
+                <h2 class="mb-3">How Can We Help You?</h2>
+                <p class="lead">Find answers to common questions about our e-learning platform</p>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="🔍 Search for answers..." id="searchInput" onkeyup="searchFAQ()">
+            </div>
+
+            <div class="popular-tags">
+                <span class="tag" onclick="filterByTag('courses')">Courses</span>
+                <span class="tag" onclick="filterByTag('payment')">Payment</span>
+                <span class="tag" onclick="filterByTag('certificate')">Certificates</span>
+                <span class="tag" onclick="filterByTag('technical')">Technical</span>
+                <span class="tag" onclick="filterByTag('account')">Account</span>
+                <span class="tag" onclick="filterByTag('refund')">Refunds</span>
+            </div>
+
+            <div class="quick-links">
+                <h4><i class="fa fa-link me-2"></i>Quick Links</h4>
+                <a href="#getting-started">Getting Started</a>
+                <a href="#payment-billing">Payment & Billing</a>
+                <a href="#courses-content">Courses & Content</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#technical-support">Technical Support</a>
+            </div>
+
+            <div class="faq-category" id="getting-started">
+                <h3><i class="fa fa-rocket me-2"></i>Getting Started</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I create an account?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Creating an account is simple and free! Follow these steps:</p>
+                        <ol>
+                            <li>Click the "Sign Up" button on our homepage</li>
+                            <li>Enter your email address and create a password</li>
+                            <li>Verify your email address</li>
+                            <li>Complete your profile with basic information</li>
+                            <li>Start browsing and enrolling in courses!</li>
+                        </ol>
+                        <p>You'll also need to agree to our <a href="terms-conditions.html">Terms & Conditions</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is there a free trial available?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a <span class="highlight-text">7-day free trial</span> for new users. During the trial period, you can:</p>
+                        <ul>
+                            <li>Access select courses for free</li>
+                            <li>Watch up to 5 hours of video content</li>
+                            <li>Try our interactive coding exercises</li>
+                            <li>Experience our mobile app features</li>
+                        </ul>
+                        <p>No credit card required for the trial. After 7 days, you can choose to subscribe or continue with our free courses.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What courses are available for beginners?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of beginner-friendly courses:</p>
+                        <ul>
+                            <li><strong>Web Development:</strong> HTML, CSS, JavaScript basics</li>
+                            <li><strong>Programming:</strong> Python, Java, C++ fundamentals</li>
+                            <li><strong>Database:</strong> SQL basics and database concepts</li>
+                            <li><strong>Mobile Development:</strong> Intro to React Native and Flutter</li>
+                            <li><strong>Data Science:</strong> Basic data analysis and visualization</li>
+                        </ul>
+                        <p>Each beginner course includes prerequisites, estimated time commitment, and skill level indicators.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I choose the right course for me?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Here's how to find the perfect course:</p>
+                        <ol>
+                            <li><strong>Assess your current skill level</strong> - Beginner, Intermediate, or Advanced</li>
+                            <li><strong>Define your goals</strong> - Career change, skill upgrade, or hobby</li>
+                            <li><strong>Check course prerequisites</strong> - Ensure you meet the requirements</li>
+                            <li><strong>Read course reviews</strong> - Learn from other students' experiences</li>
+                            <li><strong>Preview course content</strong> - Watch free introductory videos</li>
+                            <li><strong>Check time commitment</strong> - Ensure it fits your schedule</li>
+                        </ol>
+                        <p>Our course recommendation engine can also suggest courses based on your interests and goals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category" id="payment-billing">
+                <h3><i class="fa fa-credit-card me-2"></i>Payment & Billing</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept various payment methods for your convenience:</p>
+                        <ul>
+                            <li><strong>Credit/Debit Cards:</strong> Visa, Mastercard, American Express, Discover</li>
+                            <li><strong>Digital Wallets:</strong> PayPal, Apple Pay, Google Pay</li>
+                            <li><strong>Bank Transfers:</strong> Direct bank transfers (for enterprise accounts)</li>
+                            <li><strong>Cryptocurrency:</strong> Bitcoin, Ethereum (selected regions)</li>
+                        </ul>
+                        <p>All payments are processed securely through our PCI-compliant payment partners. Your payment information is never stored on our servers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is your refund policy?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a <span class="highlight-text">30-day money-back guarantee</span> for most courses:</p>
+                        <ul>
+                            <li><strong>Full refund</strong> within 30 days of purchase</li>
+                            <li><strong>No questions asked</strong> policy for course dissatisfaction</li>
+                            <li><strong>Partial refunds</strong> may be available after 30 days (case by case)</li>
+                            <li><strong>No refunds</strong> for completed courses (more than 80% progress)</li>
+                        </ul>
+                        <p>To request a refund, contact our support team with your order number and reason for refund. Refunds are typically processed within 5-7 business days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer discounts or promotions?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We regularly offer various discounts and promotions:</p>
+                        <ul>
+                            <li><strong>Seasonal Sales:</strong> Black Friday, New Year, Summer sales</li>
+                            <li><strong>Student Discounts:</strong> 20% off with valid student ID</li>
+                            <li><strong>Bulk Discounts:</strong> Save up to 40% on course bundles</li>
+                            <li><strong>Corporate Plans:</strong> Custom pricing for team training</li>
+                            <li><strong>Referral Bonuses:</strong> Get credits for referring friends</li>
+                        </ul>
+                        <p>Subscribe to our newsletter to stay updated on the latest promotions and exclusive offers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I pay in installments?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer installment plans for courses priced over $100:</p>
+                        <ul>
+                            <li><strong>3-Month Plan:</strong> Split payment into 3 equal monthly installments</li>
+                            <li><strong>6-Month Plan:</strong> Split payment into 6 equal monthly installments</li>
+                            <li><strong>0% Interest:</strong> No additional charges for installment plans</li>
+                            <li><strong>Full Access:</strong> Get immediate access to the entire course</li>
+                        </ul>
+                        <p>Installment plans are available for most courses and can be selected at checkout.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category" id="courses-content">
+                <h3><i class="fa fa-book me-2"></i>Courses & Content</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long do I have access to purchased courses?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You get <span class="highlight-text">lifetime access</span> to all purchased courses:</p>
+                        <ul>
+                            <li><strong>Unlimited Access:</strong> Watch videos as many times as you want</li>
+                            <li><strong>No Expiration:</strong> Courses never expire</li>
+                            <li><strong>Offline Access:</strong> Download videos for offline viewing (mobile app)</li>
+                            <li><strong>Updates Included:</strong> Get course updates and new content for free</li>
+                        </ul>
+                        <p>Even if we update or improve the course, you'll get access to the new content at no extra cost.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I download course materials?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, most course materials are available for download:</p>
+                        <ul>
+                            <li><strong>Video Downloads:</strong> Available in our mobile app (iOS/Android)</li>
+                            <li><strong>PDF Resources:</strong> Slide decks, worksheets, and reference guides</li>
+                            <li><strong>Code Files:</strong> Source code and project files</li>
+                            <li><strong>Audio Versions:</strong> Audio-only versions of video lectures</li>
+                        </ul>
+                        <p>Downloaded materials are for personal use only and cannot be shared or redistributed.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are courses updated regularly?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we keep our courses updated and relevant:</p>
+                        <ul>
+                            <li><strong>Regular Updates:</strong> Courses reviewed every 6 months</li>
+                            <li><strong>Technology Updates:</strong> Latest versions and frameworks covered</li>
+                            <li><strong>New Content:</strong> Additional lessons and projects added</li>
+                            <li><strong>Community Feedback:</strong> Updates based on student suggestions</li>
+                        </ul>
+                        <p>You'll receive notifications when courses you've purchased are updated with new content.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer certificates?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, certificates are available for most courses:</p>
+                        <ul>
+                            <li><strong>Certificate of Completion:</strong> Awarded upon finishing all course content</li>
+                            <li><strong>Verifiable Credentials:</strong> Unique certificate ID for verification</li>
+                            <li><strong>LinkedIn Integration:</strong> Add certificates directly to your LinkedIn profile</li>
+                            <li><strong>PDF Download:</strong> High-quality certificates for printing or sharing</li>
+                        </ul>
+                        <p>Certificates include your name, course title, completion date, and instructor information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category" id="certificates">
+                <h3><i class="fa fa-certificate me-2"></i>Certificates</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I earn a certificate?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To earn a certificate, you need to:</p>
+                        <ol>
+                            <li><strong>Complete all video lessons</strong> - Watch 100% of course videos</li>
+                            <li><strong>Finish all assignments</strong> - Complete coding exercises and projects</li>
+                            <li><strong>Pass assessments</strong> - Score at least 70% on quizzes and tests</li>
+                            <li><strong>Submit final project</strong> - Complete the capstone project (if applicable)</li>
+                        </ol>
+                        <p>Once you meet all requirements, your certificate will be automatically generated and available for download.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are the certificates recognized by employers?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our certificates are recognized and valued by many employers:</p>
+                        <ul>
+                            <li><strong>Industry Recognition:</strong> Partnerships with tech companies</li>
+                            <li><strong>LinkedIn Integration:</strong> Easily shareable on professional networks</li>
+                            <li><strong>Verification System:</strong> Employers can verify certificate authenticity</li>
+                            <li><strong>Skills Validation:</strong> Certificates demonstrate practical skills</li>
+                        </ul>
+                        <p>While certificates don't guarantee employment, they significantly enhance your resume and demonstrate your commitment to learning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category" id="technical-support">
+                <h3><i class="fa fa-headset me-2"></i>Technical Support</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What if I have technical issues?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer comprehensive technical support:</p>
+                        <ul>
+                            <li><strong>24/7 Help Center:</strong> Self-service knowledge base</li>
+                            <li><strong>Live Chat Support:</strong> Available during business hours</li>
+                            <li><strong>Email Support:</strong> Response within 24 hours</li>
+                            <li><strong>Community Forums:</strong> Get help from instructors and peers</li>
+                            <li><strong>Video Tutorials:</strong> Step-by-step troubleshooting guides</li>
+                        </ul>
+                        <p>For urgent technical issues, use our live chat or call our support hotline.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What are the system requirements?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our platform works on most modern devices and browsers:</p>
+                        <ul>
+                            <li><strong>Browsers:</strong> Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</li>
+                            <li><strong>Operating Systems:</strong> Windows 10+, macOS 10.14+, Ubuntu 18.04+</li>
+                            <li><strong>Mobile:</strong> iOS 13+, Android 8+ (native apps available)</li>
+                            <li><strong>Internet:</strong> Stable broadband connection (5 Mbps+ recommended)</li>
+                            <li><strong>Memory:</strong> 4GB RAM minimum, 8GB recommended</li>
+                        </ul>
+                        <p>For coding courses, you'll need additional software like code editors and development tools, which we provide setup guides for.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is there a mobile app?</span>
+                        <i class="fa fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our mobile apps are available for both iOS and Android:</p>
+                        <ul>
+                            <li><strong>Features:</strong> Full course access, offline downloads, progress sync</li>
+                            <li><strong>Downloads:</strong> Available on App Store and Google Play Store</li>
+                            <li><strong>Offline Mode:</strong> Download videos for offline viewing</li>
+                            <li><strong>Push Notifications:</strong> Course updates and reminders</li>
+                            <li><strong>Tablet Support:</strong> Optimized for iPad and Android tablets</li>
+                        </ul>
+                        <p>Mobile apps sync with your web account, so you can seamlessly switch between devices.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const allQuestions = document.querySelectorAll('.faq-question');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            
+            // Close all other FAQs
+            allQuestions.forEach(q => {
+                if (q !== element) {
+                    q.classList.remove('active');
+                }
+            });
+            
+            allAnswers.forEach(a => {
+                if (a !== answer) {
+                    a.classList.remove('show');
+                }
+            });
+            
+            // Toggle current FAQ
+            element.classList.toggle('active');
+            answer.classList.toggle('show');
+        }
+
+        function searchFAQ() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(filter) || answer.includes(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByTag(tag) {
+            const input = document.getElementById('searchInput');
+            input.value = tag;
+            searchFAQ();
+            
+            // Scroll to first result
+            const firstVisible = document.querySelector('.faq-item[style="display: block;"]');
+            if (firstVisible) {
+                firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+</html>

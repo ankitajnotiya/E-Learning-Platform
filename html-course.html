@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML5 Mastery Course | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+        .course-hero {
+            background: linear-gradient(135deg, #E34C26 0%, #F06529 100%);
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .course-hero img {
+            height: 120px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        .enrollment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .price-tag {
+            font-size: 36px;
+            font-weight: bold;
+            color: #E34C26;
+        }
+        .enroll-btn {
+            background: linear-gradient(135deg, #E34C26, #F06529);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(227,76,38,0.3);
+            color: white;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-list li i {
+            color: #E34C26;
+            margin-right: 10px;
+        }
+        .curriculum-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #E34C26;
+            transition: transform 0.3s ease;
+        }
+        .curriculum-item:hover {
+            transform: translateX(5px);
+        }
+        .instructor-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        .instructor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #E34C26;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>HTML5 Mastery Course</h1>
+            </div>
+
+            <div class="course-hero text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5">
+                <h2 class="mb-3">Master Modern Web Development</h2>
+                <p class="lead">Build semantic, accessible websites with HTML5</p>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-3">
+                        <i class="fa fa-clock-o fa-2x mb-2"></i>
+                        <h5>15 Hours</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-signal fa-2x mb-2"></i>
+                        <h5>Beginner</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-star fa-2x mb-2"></i>
+                        <h5>4.5 Rating</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-users fa-2x mb-2"></i>
+                        <h5>11,230 Students</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">Course Curriculum</h3>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 1: HTML Fundamentals</h5>
+                            <p>Basic structure, tags, elements, and document structure</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 2: Text & Formatting</h5>
+                            <p>Headings, paragraphs, lists, and text formatting elements</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 3: Links & Media</h5>
+                            <p>Images, audio, video, and hyperlink implementation</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 4: Forms & Input</h5>
+                            <p>Form elements, validation, and user input handling</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 5: Semantic HTML5</h5>
+                            <p>Header, nav, section, article, and semantic elements</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 6: Accessibility & SEO</h5>
+                            <p>ARIA attributes, accessibility best practices, and SEO optimization</p>
+                        </div>
+                    </div>
+
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">What You'll Learn</h3>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-check-circle"></i> Create well-structured HTML documents</li>
+                            <li><i class="fa fa-check-circle"></i> Use semantic HTML5 elements correctly</li>
+                            <li><i class="fa fa-check-circle"></i> Build accessible and inclusive websites</li>
+                            <li><i class="fa fa-check-circle"></i> Optimize HTML for search engines</li>
+                            <li><i class="fa fa-check-circle"></i> Implement forms and user interactions</li>
+                            <li><i class="fa fa-check-circle"></i> Follow modern web standards and best practices</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructor-card">
+                        <h4 class="mb-3">Your Instructor</h4>
+                        <img src="https://picsum.photos/seed/html-instructor/80/80" alt="Instructor" class="instructor-avatar">
+                        <h5>Emily Rodriguez</h5>
+                        <p class="text-muted">Frontend Developer & HTML Expert</p>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-auto">
+                                <i class="fa fa-star text-warning"></i> 4.5 Instructor Rating
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-users"></i> 15,320 Students
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-play-circle"></i> 3 Courses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="enrollment-card sticky-top" style="top: 20px;">
+                        <div class="text-center mb-4">
+                            <div class="price-tag">FREE</div>
+                            <p class="text-muted">Limited time offer</p>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <a href="html-study.html" class="enroll-btn text-center">
+                                <i class="fa fa-graduation-cap me-2"></i>Start Learning
+                            </a>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h5 class="mb-3">Course Features:</h5>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-video-camera"></i> 15 Hours Video Content</li>
+                            <li><i class="fa fa-download"></i> Downloadable Resources</li>
+                            <li><i class="fa fa-certificate"></i> Certificate of Completion</li>
+                            <li><i class="fa fa-mobile"></i> Mobile Access</li>
+                            <li><i class="fa fa-infinity"></i> Lifetime Access</li>
+                            <li><i class="fa fa-headphones"></i> Instructor Support</li>
+                        </ul>
+
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <h6 class="mb-3">Share this course:</h6>
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-outline-primary"><i class="fa fa-facebook"></i></button>
+                                <button class="btn btn-outline-info"><i class="fa fa-twitter"></i></button>
+                                <button class="btn btn-outline-danger"><i class="fa fa-linkedin"></i></button>
+                                <button class="btn btn-outline-success"><i class="fa fa-whatsapp"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

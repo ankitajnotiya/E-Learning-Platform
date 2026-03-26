@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Node.js Backend Course | E-Learning Platform</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        .back-btn:hover {
+            background-color: #00c3ff;
+            color: #fff;
+            border-color: #00c3ff;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+        .course-hero {
+            background: linear-gradient(135deg, #339933 0%, #000000 100%);
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .course-hero img {
+            height: 120px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        .enrollment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .price-tag {
+            font-size: 36px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .enroll-btn {
+            background: linear-gradient(135deg, #339933, #000000);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(51,153,51,0.3);
+            color: white;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-list li i {
+            color: #339933;
+            margin-right: 10px;
+        }
+        .curriculum-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #339933;
+            transition: transform 0.3s ease;
+        }
+        .curriculum-item:hover {
+            transform: translateX(5px);
+        }
+        .instructor-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        .instructor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #339933;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="header-container">
+                <a onclick="history.back()" class="back-btn shadow-sm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>Node.js Backend Course</h1>
+            </div>
+
+            <div class="course-hero text-center">
+                <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node.js">
+                <h2 class="mb-3">Master Backend Development</h2>
+                <p class="lead">Build scalable server applications with Node.js and Express</p>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-3">
+                        <i class="fa fa-clock-o fa-2x mb-2"></i>
+                        <h5>40 Hours</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-signal fa-2x mb-2"></i>
+                        <h5>Advanced</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-star fa-2x mb-2"></i>
+                        <h5>4.6 Rating</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-users fa-2x mb-2"></i>
+                        <h5>7,230 Students</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">Course Curriculum</h3>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 1: Node.js Fundamentals</h5>
+                            <p>Core modules, event loop, streams, and asynchronous programming</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 2: Express.js Framework</h5>
+                            <p>Routing, middleware, templating, and Express application structure</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 3: Database Integration</h5>
+                            <p>MongoDB, MySQL, and database design patterns</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 4: RESTful APIs</h5>
+                            <p>API design, REST principles, and API documentation</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 5: Authentication & Security</h5>
+                            <p>JWT, OAuth, password hashing, and security best practices</p>
+                        </div>
+                        
+                        <div class="curriculum-item">
+                            <h5><i class="fa fa-book me-2"></i>Module 6: Real-time Applications</h5>
+                            <p>Socket.io, WebSockets, and real-time communication</p>
+                        </div>
+                    </div>
+
+                    <div class="enrollment-card">
+                        <h3 class="mb-4">What You'll Learn</h3>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-check-circle"></i> Build scalable backend applications</li>
+                            <li><i class="fa fa-check-circle"></i> Create RESTful APIs and microservices</li>
+                            <li><i class="fa fa-check-circle"></i> Implement authentication and authorization</li>
+                            <li><i class="fa fa-check-circle"></i> Work with databases and ORMs</li>
+                            <li><i class="fa fa-check-circle"></i> Develop real-time applications</li>
+                            <li><i class="fa fa-check-circle"></i> Deploy Node.js applications to production</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructor-card">
+                        <h4 class="mb-3">Your Instructor</h4>
+                        <img src="https://picsum.photos/seed/node-instructor/80/80" alt="Instructor" class="instructor-avatar">
+                        <h5>David Kumar</h5>
+                        <p class="text-muted">Backend Engineer & Node.js Specialist</p>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-auto">
+                                <i class="fa fa-star text-warning"></i> 4.6 Instructor Rating
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-users"></i> 9,450 Students
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-play-circle"></i> 4 Courses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="enrollment-card sticky-top" style="top: 20px;">
+                        <div class="text-center mb-4">
+                            <div class="price-tag">FREE</div>
+                            <p class="text-muted">Limited time offer</p>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <a href="node-study.html" class="enroll-btn text-center">
+                                <i class="fa fa-graduation-cap me-2"></i>Start Learning
+                            </a>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h5 class="mb-3">Course Features:</h5>
+                        <ul class="feature-list">
+                            <li><i class="fa fa-video-camera"></i> 40 Hours Video Content</li>
+                            <li><i class="fa fa-download"></i> Downloadable Resources</li>
+                            <li><i class="fa fa-certificate"></i> Certificate of Completion</li>
+                            <li><i class="fa fa-mobile"></i> Mobile Access</li>
+                            <li><i class="fa fa-infinity"></i> Lifetime Access</li>
+                            <li><i class="fa fa-headphones"></i> Instructor Support</li>
+                        </ul>
+
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <h6 class="mb-3">Share this course:</h6>
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-outline-primary"><i class="fa fa-facebook"></i></button>
+                                <button class="btn btn-outline-info"><i class="fa fa-twitter"></i></button>
+                                <button class="btn btn-outline-danger"><i class="fa fa-linkedin"></i></button>
+                                <button class="btn btn-outline-success"><i class="fa fa-whatsapp"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
